@@ -30,10 +30,10 @@ class AppRouter {
       GoRoute(
         path: Routes.aiResponse,
         builder: (context, state) {
-          final String imagePath = state.extra as String;
+          final String imageURL = state.extra as String;
           return BlocProvider(
             create: (context) => AiResponseCubit(GetIt.I.get()),
-            child: AiResponseFeatureScreen(imagePath: imagePath),
+            child: AiResponseFeatureScreen(imageURL: imageURL),
           );
         },
       ),
