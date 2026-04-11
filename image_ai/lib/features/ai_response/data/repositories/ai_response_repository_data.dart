@@ -17,10 +17,10 @@ class AiResponseRepositoryData implements AiResponseRepositoryDomain{
   AiResponseRepositoryData(this.remoteDataSource);
 
 @override
-  Future<Result<AiResponseEntity, Failure>> getAiResponse() async {
+  Future<Result<String, Failure>> getAiResponse({required String imagePath}) async {
     try {
-      final response = await remoteDataSource.getAiResponse();
-      return Success(response.toEntity());
+      final response = await remoteDataSource.getAiResponse(imagePath: imagePath);
+      return Success(response);
     } catch (error) {
       return Error(FailureExceptions.getException(error));
     }

@@ -7,7 +7,7 @@ class AiResponseFeatureScreen extends StatelessWidget {
   const AiResponseFeatureScreen({super.key, required this.imagePath});
   @override
   Widget build(BuildContext context) {
-    final _ = context.read<AiResponseCubit>();
+    final cubit = context.read<AiResponseCubit>();
 
     return Scaffold(
       appBar: AppBar(title: const Text('Ai Response About Your Image')),
@@ -25,6 +25,10 @@ class AiResponseFeatureScreen extends StatelessWidget {
             ),
 
             SizedBox(height: 20),
+
+            FilledButton(onPressed: (){
+              cubit.getAiResponseMethod(imagePath);
+            }, child: Text("Get AI Response"))
           ],
         ),
       ),

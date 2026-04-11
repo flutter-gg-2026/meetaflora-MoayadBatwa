@@ -11,7 +11,7 @@ class AiResponseUseCase {
 
   AiResponseUseCase(this._repositoryData);
 
-   Future<Result<AiResponseEntity, Failure>> getAiResponse() async {
-    return _repositoryData.getAiResponse();
+   Future<Result<String, Failure>> getAiResponse(String imagePath) async {
+    return _repositoryData.getAiResponse(imagePath: imagePath);
   }
 }

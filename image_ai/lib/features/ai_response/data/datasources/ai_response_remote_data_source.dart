@@ -1,3 +1,4 @@
+import 'package:image_ai/core/network/dio_client.dart';
 import 'package:injectable/injectable.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:image_ai/core/services/local_keys_service.dart';
@@ -6,26 +7,23 @@ import 'package:image_ai/core/errors/network_exceptions.dart';
 
 
 abstract class BaseAiResponseRemoteDataSource {
-  Future<AiResponseModel> getAiResponse();
+  Future<String> getAiResponse({required String imagePath});
 }
 
 
 @LazySingleton(as: BaseAiResponseRemoteDataSource)
 class AiResponseRemoteDataSource implements BaseAiResponseRemoteDataSource {
- 
-  final SupabaseClient _supabase;
-  final LocalKeysService _localKeysService;
-  
+  final DioClient _dio;
   
 
-   AiResponseRemoteDataSource(this._localKeysService, this._supabase);
+   AiResponseRemoteDataSource(this._dio);
 
 
 
     @override
-  Future<AiResponseModel> getAiResponse() async {
+  Future<String> getAiResponse({required String imagePath}) async {
     try {
-      return AiResponseModel(id: 1, firstName: "Last Name", lastName: "First Name");
+      return "LLM Response";
     } catch (error) {
      throw FailureExceptions.getException(error);
     }
