@@ -8,8 +8,6 @@ import 'package:image_ai/features/flowers/presentation/cubit/flowers_cubit.dart'
 import 'package:image_ai/features/ai_response/presentation/pages/ai_response_feature_screen.dart';
 import 'package:image_ai/features/ai_response/presentation/cubit/ai_response_cubit.dart';
 
-
-
 class AppRouter {
   static final GoRouter router = GoRouter(
     initialLocation: Routes.flowers,
@@ -20,23 +18,26 @@ class AppRouter {
           return Scaffold(body: Center(child: Text("splash screen")));
         }, // SplashScreen
       ),
-    
-  GoRoute(
-    path: Routes.flowers,
-    builder: (context, state) => BlocProvider(
+
+      GoRoute(
+        path: Routes.flowers,
+        builder: (context, state) => BlocProvider(
           create: (context) => FlowersCubit(GetIt.I.get()),
           child: const FlowersFeatureScreen(),
         ),
-  ),
+      ),
 
-  GoRoute(
-    path: Routes.aiResponse,
-    builder: (context, state) => BlocProvider(
-          create: (context) => AiResponseCubit(GetIt.I.get()),
-          child: const AiResponseFeatureScreen(),
-        ),
-  ),
-],
+      GoRoute(
+        path: Routes.aiResponse,
+        builder: (context, state) {
+          final String imagePath = state.extra as String;
+          return BlocProvider(
+            create: (context) => AiResponseCubit(GetIt.I.get()),
+            child: AiResponseFeatureScreen(imagePath: imagePath),
+          );
+        },
+      ),
+    ],
 
     errorBuilder: (context, state) =>
         Scaffold(body: Center(child: Text('Page not found: ${state.uri}'))),
