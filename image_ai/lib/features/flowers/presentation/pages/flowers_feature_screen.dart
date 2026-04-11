@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:image_ai/core/constants/app_colors.dart';
+import 'package:image_ai/core/navigation/routers.dart';
 import 'package:image_ai/core/widgets/loading_widget.dart';
 import 'package:image_ai/features/flowers/presentation/cubit/flowers_cubit.dart';
 import 'package:image_ai/features/flowers/presentation/cubit/flowers_state.dart';
@@ -72,14 +74,17 @@ class FlowersFeatureScreen extends StatelessWidget {
                       ),
                       itemCount: state.flowers.length,
                       itemBuilder: (context, index) {
-                        return Card(
-                          elevation: 4,
-                          color: AppColors.success,
-                          shadowColor: AppColors.success,
-                          clipBehavior: .antiAlias,
-                          child: Image.asset(
-                            state.flowers[index].path,
-                            fit: .fill,
+                        return InkWell(
+                          onTap: () => context.push(Routes.aiResponse),
+                          child: Card(
+                            elevation: 4,
+                            color: AppColors.success,
+                            shadowColor: AppColors.success,
+                            clipBehavior: .antiAlias,
+                            child: Image.asset(
+                              state.flowers[index].path,
+                              fit: .fill,
+                            ),
                           ),
                         );
                       },
