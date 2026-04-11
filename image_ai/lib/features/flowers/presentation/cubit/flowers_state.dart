@@ -1,4 +1,5 @@
 import 'package:equatable/equatable.dart';
+import 'package:image_ai/features/flowers/domain/entities/flowers_entity.dart';
 
 abstract class FlowersState extends Equatable {
   const FlowersState();
@@ -8,7 +9,12 @@ abstract class FlowersState extends Equatable {
 }
 
 class FlowersInitialState extends FlowersState {}
-class FlowersSuccessState extends FlowersState {}
+
+class FlowersSuccessState extends FlowersState {
+  final List<FlowersEntity> flowers;
+
+  const FlowersSuccessState({required this.flowers});
+}
 
 class FlowersErrorState extends FlowersState {
   final String message;

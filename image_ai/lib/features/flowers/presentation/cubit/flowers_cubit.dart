@@ -11,10 +11,10 @@ class FlowersCubit extends Cubit<FlowersState> {
     final result = await _flowersUseCase.getFlowers();
     result.when(
       (success) {
-        //here is when success result
+        emit(FlowersSuccessState(flowers: success));
       },
       (whenError) {
-       //here is when error result
+       emit(FlowersErrorState(message: "No Flowers were found"));
       },
     );
   }
