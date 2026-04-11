@@ -25,7 +25,12 @@ class AiResponseRemoteDataSource implements BaseAiResponseRemoteDataSource {
     try {
       log(imageURL);
 
-      final response = await _dio.uploadImage(imageURL);
+      final base64Image = await _dio.convertImageToBase64(imageURL);
+      
+      log(base64Image);
+
+      final response = await _dio.uploadImage(base64Image);
+
       print("datasourse response: $response");
       return "LLM Response";
     } catch (error) {
