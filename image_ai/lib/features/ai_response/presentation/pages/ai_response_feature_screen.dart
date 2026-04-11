@@ -7,13 +7,24 @@ class AiResponseFeatureScreen extends StatelessWidget {
   const AiResponseFeatureScreen({super.key, required this.imagePath});
   @override
   Widget build(BuildContext context) {
-      final _ = context.read<AiResponseCubit>();
+    final _ = context.read<AiResponseCubit>();
 
     return Scaffold(
       appBar: AppBar(title: const Text('Ai Response About Your Image')),
       body: SingleChildScrollView(
-        child: Column(children: [
-            Image.asset(imagePath)
+        child: Column(
+          children: [
+            Center(
+              child: SizedBox(
+                height: 300,
+                child: Image.asset(
+                  imagePath,
+                  fit: .fitHeight,
+                ),
+              ),
+            ),
+
+            SizedBox(height: 20),
           ],
         ),
       ),
