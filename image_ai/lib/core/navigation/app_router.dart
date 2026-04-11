@@ -9,7 +9,7 @@ import 'package:image_ai/features/flowers/presentation/cubit/flowers_cubit.dart'
 
 class AppRouter {
   static final GoRouter router = GoRouter(
-    initialLocation: Routes.splash,
+    initialLocation: Routes.flowers,
     routes: [
       GoRoute(
         path: Routes.splash,
