@@ -5,6 +5,9 @@ import 'package:get_it/get_it.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_ai/features/flowers/presentation/pages/flowers_feature_screen.dart';
 import 'package:image_ai/features/flowers/presentation/cubit/flowers_cubit.dart';
+import 'package:image_ai/features/ai_response/presentation/pages/ai_response_feature_screen.dart';
+import 'package:image_ai/features/ai_response/presentation/cubit/ai_response_cubit.dart';
+
 
 
 class AppRouter {
@@ -23,6 +26,14 @@ class AppRouter {
     builder: (context, state) => BlocProvider(
           create: (context) => FlowersCubit(GetIt.I.get()),
           child: const FlowersFeatureScreen(),
+        ),
+  ),
+
+  GoRoute(
+    path: Routes.aiResponse,
+    builder: (context, state) => BlocProvider(
+          create: (context) => AiResponseCubit(GetIt.I.get()),
+          child: const AiResponseFeatureScreen(),
         ),
   ),
 ],
