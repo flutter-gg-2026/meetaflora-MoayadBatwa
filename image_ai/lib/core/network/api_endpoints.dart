@@ -2,18 +2,10 @@
 class ApiEndpoints {
   ApiEndpoints._();
 
-  static const String baseUrl = 'https://api.example.com';
+  static const String baseUrl = 'https://generativelanguage.googleapis.com/v1beta/models/$modelUsed:generateContent';
 
-  // Auth
-  static const String login = '/auth/login';
-  static const String register = '/auth/register';
-  static const String logout = '/auth/logout';
-  static const String refreshToken = '/auth/refresh';
+  // model Used
+  static const String modelUsed = 'gemini-2.5-flash';
 
-  // User
-  static const String profile = '/user/profile';
-
-  // Common
-  static String userById(String id) => '/users/$id';
 }
 
