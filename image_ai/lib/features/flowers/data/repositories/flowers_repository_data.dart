@@ -17,10 +17,10 @@ class FlowersRepositoryData implements FlowersRepositoryDomain{
   FlowersRepositoryData(this.remoteDataSource);
 
 @override
-  Future<Result<FlowersEntity, Failure>> getFlowers() async {
+  Future<Result<List<FlowersEntity>, Failure>> getFlowers() async {
     try {
       final response = await remoteDataSource.getFlowers();
-      return Success(response.toEntity());
+      return Success(response.map((item) => item.toEntity()).toList());
     } catch (error) {
       return Error(FailureExceptions.getException(error));
     }

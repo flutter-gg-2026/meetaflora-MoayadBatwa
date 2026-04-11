@@ -11,7 +11,7 @@ class FlowersUseCase {
 
   FlowersUseCase(this._repositoryData);
 
-   Future<Result<FlowersEntity, Failure>> getFlowers() async {
+   Future<Result<List<FlowersEntity>, Failure>> getFlowers() async {
     return _repositoryData.getFlowers();
   }
 }
