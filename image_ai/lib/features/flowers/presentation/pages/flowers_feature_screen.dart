@@ -75,14 +75,14 @@ class FlowersFeatureScreen extends StatelessWidget {
                       itemCount: state.flowers.length,
                       itemBuilder: (context, index) {
                         return InkWell(
-                          onTap: () => context.push(Routes.aiResponse, extra: state.flowers[index].path),
+                          onTap: () => context.push(Routes.aiResponse, extra: state.flowers[index].address),
                           child: Card(
                             elevation: 4,
                             color: AppColors.success,
                             shadowColor: AppColors.success,
                             clipBehavior: .antiAlias,
-                            child: Image.asset(
-                              state.flowers[index].path,
+                            child: Image.network(
+                              state.flowers[index].address,
                               fit: .fill,
                             ),
                           ),

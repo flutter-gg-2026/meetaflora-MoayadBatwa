@@ -14,21 +14,21 @@ class FlowersRemoteDataSource implements BaseFlowersRemoteDataSource {
   Future<List<FlowersModel>> getFlowers() async {
     try {
       List<String> flowerImages = [
-        'assets/images/flower_1.jpg',
-        'assets/images/flower_2.jpg',
-        'assets/images/flower_3.jpg',
-        'assets/images/flower_4.jpg',
-        'assets/images/flower_5.jpg',
-        'assets/images/flower_6.jpg',
-        'assets/images/flower_7.jpg',
-        'assets/images/flower_8.jpg',
-        'assets/images/flower_9.jpg',
-        'assets/images/flower_10.jpg',
-        'assets/images/flower_11.jpg',
-        'assets/images/flower_12.jpg',
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5rSUwolABltCNb-yMAT_OPAktZXFNA3GOtA&s',
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUqoJMf50kuFIu-kcBSQYq_Pge3R5eNrovjw&s',
+        'https://img.freepik.com/free-photo/close-up-full-bloom-flower_23-2151921043.jpg?semt=ais_hybrid&w=740&q=80',
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7hjb-2qwr8KDiw9uU6q3Xb2IidpKMPanGXw&s',
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzpWPE52w87Lw1_8P4ECdNusOrKWfV-_L8zQ&s',
+        'https://getflowersdaily.com/wp-content/uploads/2025/03/modi.jpg',
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTN-tMFs57w_8wcj5pGjjE-QQxb7uUkHMQ66A&s',
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJDGbG5JmHBrYKPZGoLp722PG_9jP7IzAtXw&s',
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-AfKwnq3y1xx5ksEJWLmWmVvYtB82LqLU4A&s',
+        'https://www.thespruce.com/thmb/c3znkzZgMeuvzBy4wH13jVllfUo=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/plants-with-big-flowers-4138211-hero-b10becb169064cc4b3c7967adc1b22e1.jpg',
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvg9iFnjwzHoEjJ4-Y0--F1JEHKbX348LvHQ&s',
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuIrtcrONvcWI7c7xJ9OGxAOdkQsUWAsqqog&s',
       ];
 
-      return flowerImages.map((item) => FlowersModel(path: item)).toList();
+      return flowerImages.map((item) => FlowersModel(address: item)).toList();
     } catch (error) {
       throw FailureExceptions.getException(error);
     }

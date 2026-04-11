@@ -7,7 +7,7 @@ part of 'flowers_model.dart';
 // **************************************************************************
 
 _FlowersModel _$FlowersModelFromJson(Map<String, dynamic> json) =>
-    _FlowersModel(path: json['path'] as String);
+    _FlowersModel(address: json['address'] as String);
 
 Map<String, dynamic> _$FlowersModelToJson(_FlowersModel instance) =>
-    <String, dynamic>{'path': instance.path};
+    <String, dynamic>{'address': instance.address};

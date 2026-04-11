@@ -6,7 +6,7 @@ part 'flowers_model.g.dart';
 @freezed
 abstract class FlowersModel with _$FlowersModel {
   const factory FlowersModel({
-    required String path,
+    required String address,
     
   }) = _FlowersModel;
 
@@ -17,6 +17,6 @@ abstract class FlowersModel with _$FlowersModel {
 
 extension FlowersModelMapper on FlowersModel {
   FlowersEntity toEntity() {
-    return FlowersEntity(path: path,);
+    return FlowersEntity(address: address,);
   }
   }

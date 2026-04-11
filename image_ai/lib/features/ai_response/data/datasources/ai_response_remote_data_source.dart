@@ -24,11 +24,8 @@ class AiResponseRemoteDataSource implements BaseAiResponseRemoteDataSource {
   Future<String> getAiResponse({required String imagePath}) async {
     try {
       log(imagePath);
-      final imageFile = File(imagePath);
-      final bytes = await imageFile.readAsBytes();
-      final base64Image = base64Encode(bytes);
-      print(imageFile);
-      final response = await _dio.uploadImage(base64Image);
+
+      final response = await _dio.uploadImage(imagePath);
       print("datasourse response: $response");
       return "LLM Response";
     } catch (error) {

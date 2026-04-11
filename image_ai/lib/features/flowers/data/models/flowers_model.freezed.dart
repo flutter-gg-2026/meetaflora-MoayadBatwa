@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$FlowersModel {
 
- String get path;
+ String get address;
 /// Create a copy of FlowersModel
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +28,16 @@ $FlowersModelCopyWith<FlowersModel> get copyWith => _$FlowersModelCopyWithImpl<F
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is FlowersModel&&(identical(other.path, path) || other.path == path));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is FlowersModel&&(identical(other.address, address) || other.address == address));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,path);
+int get hashCode => Object.hash(runtimeType,address);
 
 @override
 String toString() {
-  return 'FlowersModel(path: $path)';
+  return 'FlowersModel(address: $address)';
 }
 
 
@@ -48,7 +48,7 @@ abstract mixin class $FlowersModelCopyWith<$Res>  {
   factory $FlowersModelCopyWith(FlowersModel value, $Res Function(FlowersModel) _then) = _$FlowersModelCopyWithImpl;
 @useResult
 $Res call({
- String path
+ String address
 });
 
 
@@ -65,9 +65,9 @@ class _$FlowersModelCopyWithImpl<$Res>
 
 /// Create a copy of FlowersModel
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? path = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? address = null,}) {
   return _then(_self.copyWith(
-path: null == path ? _self.path : path // ignore: cast_nullable_to_non_nullable
+address: null == address ? _self.address : address // ignore: cast_nullable_to_non_nullable
 as String,
   ));
 }
@@ -153,10 +153,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String path)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String address)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _FlowersModel() when $default != null:
-return $default(_that.path);case _:
+return $default(_that.address);case _:
   return orElse();
 
 }
@@ -174,10 +174,10 @@ return $default(_that.path);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String path)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String address)  $default,) {final _that = this;
 switch (_that) {
 case _FlowersModel():
-return $default(_that.path);case _:
+return $default(_that.address);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -194,10 +194,10 @@ return $default(_that.path);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String path)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String address)?  $default,) {final _that = this;
 switch (_that) {
 case _FlowersModel() when $default != null:
-return $default(_that.path);case _:
+return $default(_that.address);case _:
   return null;
 
 }
@@ -209,10 +209,10 @@ return $default(_that.path);case _:
 @JsonSerializable()
 
 class _FlowersModel implements FlowersModel {
-  const _FlowersModel({required this.path});
+  const _FlowersModel({required this.address});
   factory _FlowersModel.fromJson(Map<String, dynamic> json) => _$FlowersModelFromJson(json);
 
-@override final  String path;
+@override final  String address;
 
 /// Create a copy of FlowersModel
 /// with the given fields replaced by the non-null parameter values.
@@ -227,16 +227,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _FlowersModel&&(identical(other.path, path) || other.path == path));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _FlowersModel&&(identical(other.address, address) || other.address == address));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,path);
+int get hashCode => Object.hash(runtimeType,address);
 
 @override
 String toString() {
-  return 'FlowersModel(path: $path)';
+  return 'FlowersModel(address: $address)';
 }
 
 
@@ -247,7 +247,7 @@ abstract mixin class _$FlowersModelCopyWith<$Res> implements $FlowersModelCopyWi
   factory _$FlowersModelCopyWith(_FlowersModel value, $Res Function(_FlowersModel) _then) = __$FlowersModelCopyWithImpl;
 @override @useResult
 $Res call({
- String path
+ String address
 });
 
 
@@ -264,9 +264,9 @@ class __$FlowersModelCopyWithImpl<$Res>
 
 /// Create a copy of FlowersModel
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? path = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? address = null,}) {
   return _then(_FlowersModel(
-path: null == path ? _self.path : path // ignore: cast_nullable_to_non_nullable
+address: null == address ? _self.address : address // ignore: cast_nullable_to_non_nullable
 as String,
   ));
 }
