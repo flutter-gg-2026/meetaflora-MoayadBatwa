@@ -11,7 +11,7 @@ import 'package:image_ai/features/ai_response/data/models/ai_response_model.dart
 import 'package:image_ai/core/errors/network_exceptions.dart';
 
 abstract class BaseAiResponseRemoteDataSource {
-  Future<String> getAiResponse({required String imagePath});
+  Future<String> getAiResponse({required String imageURL});
 }
 
 @LazySingleton(as: BaseAiResponseRemoteDataSource)
@@ -21,11 +21,11 @@ class AiResponseRemoteDataSource implements BaseAiResponseRemoteDataSource {
   AiResponseRemoteDataSource(this._dio);
 
   @override
-  Future<String> getAiResponse({required String imagePath}) async {
+  Future<String> getAiResponse({required String imageURL}) async {
     try {
-      log(imagePath);
+      log(imageURL);
 
-      final response = await _dio.uploadImage(imagePath);
+      final response = await _dio.uploadImage(imageURL);
       print("datasourse response: $response");
       return "LLM Response";
     } catch (error) {

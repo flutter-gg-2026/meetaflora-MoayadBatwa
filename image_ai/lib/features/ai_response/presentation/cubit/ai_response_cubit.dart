@@ -9,10 +9,9 @@ class AiResponseCubit extends Cubit<AiResponseState> {
 
   AiResponseCubit(this._aiResponseUseCase) : super(AiResponseInitialState());
 
-  Future<void> getAiResponseMethod(String imagePath) async {
-    imagePath = "assets/images/flower_1.jpg";
+  Future<void> getAiResponseMethod(String imageURL) async {
 
-    final result = await _aiResponseUseCase.getAiResponse(imagePath);
+    final result = await _aiResponseUseCase.getAiResponse(imageURL);
     result.when(
       (success) {
         log(success);
