@@ -23,16 +23,11 @@ class AiResponseRemoteDataSource implements BaseAiResponseRemoteDataSource {
   @override
   Future<String> getAiResponse({required String imageURL}) async {
     try {
-      log(imageURL);
-
-      final base64Image = await _dio.convertImageToBase64(imageURL);
+      // final base64Image = await _dio.convertImageToBase64(imageURL);
       
-      log(base64Image);
+      // final aiResponse = await _dio.uploadImage(base64Image);
 
-      final response = await _dio.uploadImage(base64Image);
-
-      print("datasourse response: $response");
-      return "LLM Response";
+      return "aiResponse";
     } catch (error) {
       throw FailureExceptions.getException(error);
     }

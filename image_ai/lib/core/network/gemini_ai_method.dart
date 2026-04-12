@@ -13,7 +13,6 @@ extension GeminiMethods on DioClient {
       imageURL,
       options: Options(responseType: .bytes),
     );
-    log("converted Image ${response.data}====================1");
     final base64Image = base64Encode(response.data);
     return base64Image;
   }
@@ -38,12 +37,12 @@ extension GeminiMethods on DioClient {
 
     final response = await dio.post(ApiEndpoints.baseUrl, data: data);
 
-    print(response.data);
+    print(response.data["candidates"][0]["content"]["parts"][0]["text"]);
 
     log(
       "==================== Image Uploaded = Response Received =================",
     );
 
-    return Future.value("AI Response Here: ...");
+    return response.data["candidates"][0]["content"]["parts"][0]["text"];
   }
 }

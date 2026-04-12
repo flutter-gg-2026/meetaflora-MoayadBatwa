@@ -14,10 +14,10 @@ class AiResponseCubit extends Cubit<AiResponseState> {
     final result = await _aiResponseUseCase.getAiResponse(imageURL);
     result.when(
       (success) {
-        log(success);
+        emit(AiResponseSuccessState(aiResponse: success));
       },
       (whenError) {
-       log(whenError.message);
+       emit(AiResponseErrorState(message: whenError.message));
       },
     );
   }
