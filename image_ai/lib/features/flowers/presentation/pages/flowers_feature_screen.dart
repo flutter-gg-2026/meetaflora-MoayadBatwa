@@ -1,3 +1,4 @@
+import 'package:any_image_view/any_image_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -15,87 +16,99 @@ class FlowersFeatureScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(title: const Text('Flowers')),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            BlocBuilder<FlowersCubit, FlowersState>(
-              builder: (context, state) {
-                switch (state) {
-                  case FlowersInitialState _:
-                    cubit.getFlowersMethod();
-                    return LoadingWidget();
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                BlocBuilder<FlowersCubit, FlowersState>(
+                  builder: (context, state) {
+                    switch (state) {
+                      case FlowersInitialState _:
+                        cubit.getFlowersMethod();
+                        return LoadingWidget();
 
-                  case FlowersErrorState _:
-                    return Column(
-                      children: [
-                        Center(
-                          child: Stack(
-                            alignment: .bottomCenter,
-                            children: [
-                              Container(
-                                clipBehavior: .antiAlias,
-                                height: 200,
-                                decoration: BoxDecoration(
-                                  shape: .circle,
-                                  color: AppColors.warning,
-                                ),
-                                child: Image.asset(
-                                  "assets/images/flower_1.jpg",
-                                  fit: .fill,
-                                ),
+                      case FlowersErrorState _:
+                        return Column(
+                          children: [
+                            Center(
+                              child: Stack(
+                                alignment: .bottomCenter,
+                                children: [
+                                  AnyImageView(
+                                    imagePath: "assets/images/flower_1.jpg",
+                                    fit: .fill,
+                                    width: 200,
+                                    height: 200,
+                                    shape: .circle,
+                                    borderRadius: .circular(200),
+                                    border: .all(
+                                      width: 5,
+                                      color: AppColors.warning,
+                                    ),
+                                  ),
+
+                                  Icon(
+                                    Icons.not_interested,
+                                    color: AppColors.error,
+                                    size: 200,
+                                  ),
+                                ],
                               ),
-
-                              Icon(
-                                Icons.not_interested,
-                                color: AppColors.error,
-                                size: 200,
-                              ),
-                            ],
-                          ),
-                        ),
-                        Text(
-                          state.message,
-                          style: TextStyle(
-                            decoration: .underline,
-                            fontWeight: .bold,
-                            fontSize: 20,
-                            color: AppColors.error,
-                          ),
-                        ),
-                      ],
-                    );
-
-                  case FlowersSuccessState _:
-                    return GridView.builder(
-                      primary: false,
-                      shrinkWrap: true,
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 2,
-                      ),
-                      itemCount: state.flowers.length,
-                      itemBuilder: (context, index) {
-                        return InkWell(
-                          onTap: () => context.push(Routes.aiResponse, extra: state.flowers[index].address),
-                          child: Card(
-                            elevation: 4,
-                            color: AppColors.success,
-                            shadowColor: AppColors.success,
-                            clipBehavior: .antiAlias,
-                            child: Image.network(
-                              state.flowers[index].address,
-                              fit: .fill,
                             ),
-                          ),
+                            Text(
+                              state.message,
+                              style: TextStyle(
+                                decoration: .underline,
+                                fontWeight: .bold,
+                                fontSize: 20,
+                                color: AppColors.error,
+                              ),
+                            ),
+                          ],
                         );
-                      },
-                    );
 
-                  default:
-                    return SizedBox.shrink();
-                }
-              },
+                      case FlowersSuccessState _:
+                        return GridView.builder(
+                          primary: false,
+                          shrinkWrap: true,
+                          gridDelegate:
+                              SliverGridDelegateWithFixedCrossAxisCount(
+                                crossAxisCount: 2,
+                                crossAxisSpacing: 10,
+                                mainAxisSpacing: 10,
+                                mainAxisExtent: 200,
+                              ),
+                          itemCount: state.flowers.length,
+                          itemBuilder: (context, index) {
+                            return AnyImageView(
+                              width: MediaQuery.widthOf(context) / 2,
+                              height: 200,
+                              imagePath: state.flowers[index].address,
+                              fit: .fill,
+                              onTap: () => context.push(
+                                Routes.aiResponse,
+                                extra: state.flowers[index].address,
+                              ),
+                              borderRadius: .circular(20),
+                              boxShadow: kElevationToShadow[4],
+                              errorWidget: Icon(
+                                Icons.error,
+                                color: AppColors.error,
+                              ),
+                            );
+                          },
+                        );
+
+                      default:
+                        return SizedBox.shrink();
+                    }
+                  },
+                ),
+              ],
             ),
-          ],
+          ),
         ),
       ),
     );
