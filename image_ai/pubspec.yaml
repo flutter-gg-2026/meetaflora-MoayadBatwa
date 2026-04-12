@@ -16,6 +16,7 @@ dependencies:
   equatable: ^2.0.8
   flutter:
     sdk: flutter
+  flutter_animate: ^4.5.2
   flutter_bloc: ^9.1.1
   flutter_dotenv: ^6.0.0
   flutter_gemini: ^3.0.0
