@@ -22,7 +22,7 @@ extension GeminiMethods on DioClient {
           "parts": [
             {
               "text":
-                  "Explain The Flower in this image with in structured way, start from the name",
+                  "Tell me about the Flower, start with the name",
             },
             {
               "inlineData": {"mimeType": "image/png", "data": base64Image},

@@ -90,7 +90,7 @@ class AiResponseFeatureScreen extends StatelessWidget {
 
                               Positioned(
                                 top: -30,
-                                right: -30,
+                                right: -40,
                                 child: AnyImageView(
                                   imagePath: "assets/lottie/ai_response.json",
                                   height: 110,
