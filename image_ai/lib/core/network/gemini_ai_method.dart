@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:io';
 import 'package:dio/dio.dart';
 import 'package:image_ai/core/network/api_endpoints.dart';
 import 'package:image_ai/core/network/dio_client.dart';
@@ -6,11 +7,21 @@ import 'package:image_ai/core/network/dio_client.dart';
 extension GeminiMethods on DioClient {
   Future<String> convertImageToBase64(String imageURL) async {
     // Convert image into base64<String> datatype as ai-api require
-    final response = await dio.get(
-      imageURL,
-      options: Options(responseType: .bytes),
-    );
-    final base64Image = base64Encode(response.data);
+    String base64Image;
+
+    if (imageURL.contains("https://")) {
+      final response = await dio.get(
+        imageURL,
+        options: Options(responseType: .bytes),
+      );
+      base64Image = base64Encode(response.data);
+    }
+    else {
+      final File imageFile = File(imageURL);
+      final imageBytes = await imageFile.readAsBytes();
+      base64Image = base64Encode(imageBytes);
+    }
+
     return base64Image;
   }
 
@@ -20,10 +31,7 @@ extension GeminiMethods on DioClient {
       "contents": [
         {
           "parts": [
-            {
-              "text":
-                  "Tell me about the Flower, start with the name",
-            },
+            {"text": "Tell me about the Flower, start with the name"},
             {
               "inlineData": {"mimeType": "image/png", "data": base64Image},
             },

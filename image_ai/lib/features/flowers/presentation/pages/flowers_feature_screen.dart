@@ -8,6 +8,7 @@ import 'package:image_ai/core/navigation/routers.dart';
 import 'package:image_ai/core/widgets/loading_widget.dart';
 import 'package:image_ai/features/flowers/presentation/cubit/flowers_cubit.dart';
 import 'package:image_ai/features/flowers/presentation/cubit/flowers_state.dart';
+import 'package:image_ai/features/flowers/presentation/widgets/gallery_widget.dart';
 
 class FlowersFeatureScreen extends StatelessWidget {
   const FlowersFeatureScreen({super.key});
@@ -16,11 +17,14 @@ class FlowersFeatureScreen extends StatelessWidget {
     final cubit = context.read<FlowersCubit>();
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Flowers')),
+      appBar: AppBar(title: const Text('Flowers'), actions: [GalleryWidget()]),
       body: SizedBox.expand(
         child: DecoratedBox(
           decoration: BoxDecoration(
-            image: DecorationImage(image: AssetImage("assets/images/background.jpg",), fit: .fill)
+            image: DecorationImage(
+              image: AssetImage("assets/images/background.jpg"),
+              fit: .fill,
+            ),
           ),
           child: SafeArea(
             child: Padding(
@@ -34,7 +38,7 @@ class FlowersFeatureScreen extends StatelessWidget {
                           case FlowersInitialState _:
                             cubit.getFlowersMethod();
                             return LoadingWidget();
-          
+
                           case FlowersErrorState _:
                             return Column(
                               children: [
@@ -54,7 +58,7 @@ class FlowersFeatureScreen extends StatelessWidget {
                                           color: AppColors.warning,
                                         ),
                                       ),
-          
+
                                       Icon(
                                         Icons.not_interested,
                                         color: AppColors.error,
@@ -74,7 +78,7 @@ class FlowersFeatureScreen extends StatelessWidget {
                                 ),
                               ],
                             );
-          
+
                           case FlowersSuccessState _:
                             return GridView.builder(
                               primary: false,
@@ -106,7 +110,7 @@ class FlowersFeatureScreen extends StatelessWidget {
                                 );
                               },
                             );
-          
+
                           default:
                             return SizedBox.shrink();
                         }
