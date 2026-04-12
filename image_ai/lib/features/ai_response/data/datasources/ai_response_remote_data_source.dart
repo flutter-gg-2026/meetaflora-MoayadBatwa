@@ -27,7 +27,7 @@ class AiResponseRemoteDataSource implements BaseAiResponseRemoteDataSource {
       
       // final aiResponse = await _dio.uploadImage(base64Image);
 
-      return "aiResponse";
+      return "aiResponse aiResponse aiResponse aiResponse aiResponse aiResponse";
     } catch (error) {
       throw FailureExceptions.getException(error);
     }

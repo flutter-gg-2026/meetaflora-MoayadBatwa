@@ -80,6 +80,12 @@ class AiResponseFeatureScreen extends StatelessWidget {
                                     color: AppColors.textPrimary,
                                   ),
                                 ),
+                              ).animate().scaleY(
+                                begin: 0,
+                                end: 1,
+                                alignment: Alignment.topCenter,
+                                duration: 1.5.seconds,
+                                curve: Curves.easeOut,
                               ),
 
                               Positioned(
@@ -87,7 +93,7 @@ class AiResponseFeatureScreen extends StatelessWidget {
                                 right: -30,
                                 child: AnyImageView(
                                   imagePath: "assets/lottie/ai_response.json",
-                                  height: 100,
+                                  height: 110,
                                 ),
                               ),
                             ],
