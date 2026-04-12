@@ -82,16 +82,19 @@ Repositories return Result<Success, Failure> instead of throwing errors to the U
 
 ### Flowers Screenshot
 
-![AI Response Success](assets/images/screenshots/ai_response_success.png)
+![5969765685883767980](https://github.com/user-attachments/assets/5c3c017b-8be2-473b-a6fb-09704de96a45)
+
 
 
 ### AI Response Screenshot
 
-![AI Response Success](assets/images/screenshots/ai_response_success.png)
+![5969765685883767979](https://github.com/user-attachments/assets/3c8e7ff2-9195-4653-b44d-20a2db9b775c)
+
 
 ### Error Screenshot
 
-![Error State](assets/images/screenshots/error_state.png)
+![5969765685883767989](https://github.com/user-attachments/assets/9cbe325b-c5ff-44ca-845b-34ce3992be98)
+
 
 ## Setup and Run
 
