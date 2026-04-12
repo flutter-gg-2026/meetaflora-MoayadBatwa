@@ -11,6 +11,10 @@ class AiResponseCubit extends Cubit<AiResponseState> {
 
   Future<void> getAiResponseMethod(String imageURL) async {
 
+    emit(AiResponseLoadingState());
+
+    await Future.delayed(Duration(seconds: 2));
+
     final result = await _aiResponseUseCase.getAiResponse(imageURL);
     result.when(
       (success) {

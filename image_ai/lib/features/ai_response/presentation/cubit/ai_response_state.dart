@@ -9,6 +9,8 @@ abstract class AiResponseState extends Equatable {
 
 class AiResponseInitialState extends AiResponseState {}
 
+class AiResponseLoadingState extends AiResponseState {}
+
 class AiResponseSuccessState extends AiResponseState {
   final String aiResponse;
 

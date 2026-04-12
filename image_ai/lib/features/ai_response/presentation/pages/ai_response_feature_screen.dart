@@ -45,6 +45,9 @@ class AiResponseFeatureScreen extends StatelessWidget {
                   BlocBuilder<AiResponseCubit, AiResponseState>(
                     builder: (context, state) {
                       switch (state) {
+                        case AiResponseLoadingState _:
+                          return AnyImageView(imagePath: "assets/lottie/ai_loading.json", height: 150,);
+
                         case AiResponseErrorState _:
                           return Icon(Icons.error);
 
