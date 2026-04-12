@@ -1,7 +1,4 @@
 import 'dart:convert';
-import 'dart:developer';
-import 'dart:io';
-
 import 'package:dio/dio.dart';
 import 'package:image_ai/core/network/api_endpoints.dart';
 import 'package:image_ai/core/network/dio_client.dart';
@@ -36,12 +33,6 @@ extension GeminiMethods on DioClient {
     };
 
     final response = await dio.post(ApiEndpoints.baseUrl, data: data);
-
-    print(response.data["candidates"][0]["content"]["parts"][0]["text"]);
-
-    log(
-      "==================== Image Uploaded = Response Received =================",
-    );
 
     return response.data["candidates"][0]["content"]["parts"][0]["text"];
   }

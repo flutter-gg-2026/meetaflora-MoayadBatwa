@@ -14,7 +14,5 @@ Future<void> setup() async {
   //----------------------------------------------------------------------------
   await GetStorage.init();
   //----------------------------------------------------------------------------
-  // Initialize Gemini 
-  Gemini.init(apiKey: dotenv.env["gemini_key"]!);
 }
 
