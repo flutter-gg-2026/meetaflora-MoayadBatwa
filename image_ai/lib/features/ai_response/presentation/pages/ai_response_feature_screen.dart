@@ -55,7 +55,10 @@ class AiResponseFeatureScreen extends StatelessWidget {
                             );
         
                           case AiResponseErrorState _:
-                            return Icon(Icons.error);
+                            return AnyImageView(
+                              imagePath: "assets/lottie/ai_failed.json",
+                              height: 150,
+                            );
         
                           case AiResponseSuccessState _:
                             return Stack(
