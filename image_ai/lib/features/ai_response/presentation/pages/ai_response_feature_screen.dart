@@ -68,8 +68,8 @@ class AiResponseFeatureScreen extends StatelessWidget {
                                     begin: .topLeft,
                                     end: .bottomRight,
                                     colors: [
-                                      const Color.fromARGB(164, 59, 218, 246),
-                                      const Color.fromARGB(178, 40, 243, 114),
+                                      const Color.fromARGB(150, 59, 218, 246),
+                                      const Color.fromARGB(150, 40, 243, 175),
                                     ],
                                   ),
                                   boxShadow: kElevationToShadow[4],
