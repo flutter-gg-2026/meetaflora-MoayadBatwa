@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:image_ai/core/navigation/routers.dart';
@@ -22,7 +20,6 @@ class GalleryWidget extends StatelessWidget {
           return;
         }
 
-        log("object = ${image.path}");
         if (context.mounted) {
           context.push(Routes.aiResponse, extra: image.path);
         }

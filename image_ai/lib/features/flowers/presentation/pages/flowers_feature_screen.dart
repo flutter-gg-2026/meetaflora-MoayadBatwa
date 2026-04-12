@@ -8,6 +8,7 @@ import 'package:image_ai/core/navigation/routers.dart';
 import 'package:image_ai/core/widgets/loading_widget.dart';
 import 'package:image_ai/features/flowers/presentation/cubit/flowers_cubit.dart';
 import 'package:image_ai/features/flowers/presentation/cubit/flowers_state.dart';
+import 'package:image_ai/features/flowers/presentation/widgets/camera_widget.dart';
 import 'package:image_ai/features/flowers/presentation/widgets/gallery_widget.dart';
 
 class FlowersFeatureScreen extends StatelessWidget {
@@ -17,7 +18,7 @@ class FlowersFeatureScreen extends StatelessWidget {
     final cubit = context.read<FlowersCubit>();
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Flowers'), actions: [GalleryWidget()]),
+      appBar: AppBar(title: const Text('Flowers'), actions: [GalleryWidget(), CameraWidget()]),
       body: SizedBox.expand(
         child: DecoratedBox(
           decoration: BoxDecoration(
